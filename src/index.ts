@@ -2,13 +2,17 @@ const nextJokeBtn = document.querySelector('.btn') as HTMLInputElement
 const jokeDisplay = document.querySelector('.joke') as HTMLParagraphElement
 const ratingDisplay = document.querySelector('.rating') as HTMLDivElement
 const ratingButtons = document.querySelectorAll('.score') as NodeListOf<HTMLInputElement> 
+const weatherDisplay = document.querySelector('.weather') as HTMLParagraphElement
 
-const JOKE_API_URL = 'https://icanhazdadjoke.com/'
+const WEATHER_API_URL = 'https://api.open-meteo.com/v1/forecast?latitude=41.39&longitude=2.16&current_weather=true'
+
+const JOKE_API_URLS = ['https://icanhazdadjoke.com/', 'https://api.chucknorris.io/jokes/random']
 
 // Interfaces
 interface Joke {
     id: string,
-    joke: string,
+    joke?: string,
+    value?: string,
     status: number
 }
 interface JokeReport {
@@ -49,12 +53,12 @@ const resetRating = (): void => {
 }
 
 const showJoke = async () =>  {
+    const random = Math.floor(Math.random() * (2 - 0) + 0)
     try {
-        const {joke} = await getJoke(JOKE_API_URL)
-        
-        jokeDisplay.textContent = joke
+        const joke = await getJoke(JOKE_API_URLS[random])
+        jokeDisplay.textContent = joke.joke || joke.value || 'Try Again...'
         ratingDisplay.style.display = 'flex' 
-
+  
     } catch (error) {
         console.error(error)
     }
@@ -65,10 +69,19 @@ nextJokeBtn.addEventListener('click',  () => {
     showJoke()
     
     if(!jokeDisplay.textContent) {
-       jokeDisplay.textContent = 'Loading...'
+        jokeDisplay.textContent = 'Loading...'
     } 
     
     if(currentJoke.score != 0) {
         addJokeReport(jokeDisplay.textContent, currentJoke.score)
     }
+})
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch(WEATHER_API_URL)
+        .then(res => res.json())
+        .then(data => {
+            weatherDisplay.textContent = `${data.current_weather.temperature} °C`
+        })
 })
