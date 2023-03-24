@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jokes Generator</title>
+    <link rel="stylesheet" href="styles.css">
     <script defer src="./index.js"></script>
 </head>
 <body>
@@ -13,6 +14,20 @@
             <div class="card">
                 <h1>Ready to laugh?</h1>
                 <p class="joke"></p>
+                <div class="rating">
+                    <div>
+                        <input id="score1" type="radio" name="rating" class="score" value="1">
+                        <label for="score1" class="score-title">1</label>
+                    </div>
+                    <div>
+                        <input id="score2" type="radio" name="rating" class="score" value="2">
+                        <label for="score2" class="score-title">2</label>
+                    </div>
+                    <div>
+                        <input id="score3" type="radio" name="rating" class="score" value="3">
+                        <label for="score3" class="score-title">3</label>
+                    </div>
+                </div>
                 <button class="btn" type="button">Next Joke</button>
             </div>
         </section>
