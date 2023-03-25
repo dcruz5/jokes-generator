@@ -10,28 +10,33 @@
 </head>
 <body>
     <main>
-        <p class="weather">Weather</p>
-        <section>
-            <div class="card">
-                <h1>Ready to laugh?</h1>
-                <p class="joke"></p>
-                <div class="rating">
-                    <div>
-                        <input id="score1" type="radio" name="rating" class="score" value="1">
-                        <label for="score1" class="score-title">1</label>
+        <div class="container">
+            <img class="blob blob-bg" src="./assets/small.svg" alt="">
+            <img class="blob blob-bg" src="./assets/small.svg" alt="">
+            <img class= "blob blob-center" src="./assets/blob.svg" alt="">
+            <p class="weather">Weather</p>
+            <section>
+                <div class="card">
+                    <h1>Ready to laugh?</h1>
+                    <p class="joke"></p>
+                    <div class="rating">
+                        <div class="rating-icon">
+                            <input id="score1" type="radio" name="rating" class="score" value="1">
+                            <!-- <label for="score1" class="score-title">1</label> -->
+                        </div>
+                        <div class="rating-icon">
+                            <input id="score2" type="radio" name="rating" class="score" value="2">
+                            <!-- <label for="score2" class="score-title">2</label> -->
+                        </div>
+                        <div class="rating-icon">
+                            <input id="score3" type="radio" name="rating" class="score" value="3">
+                            <!-- <label for="score3" class="score-title">3</label> -->
+                        </div>
                     </div>
-                    <div>
-                        <input id="score2" type="radio" name="rating" class="score" value="2">
-                        <label for="score2" class="score-title">2</label>
-                    </div>
-                    <div>
-                        <input id="score3" type="radio" name="rating" class="score" value="3">
-                        <label for="score3" class="score-title">3</label>
-                    </div>
+                    <button class="btn" type="button">Next joke</button>
                 </div>
-                <button class="btn" type="button">Next Joke</button>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 </body>
 </html>
