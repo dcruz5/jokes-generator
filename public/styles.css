@@ -20,22 +20,20 @@ body {
     margin: 0.5rem 0 0 0.5rem;
     padding: 0.8rem 2rem;
     font-weight: 600;
-    background-color: rgb(255, 214, 48);
-    border-radius: 1rem;
 }
 
-main {
+.container {
     display: grid;
     place-items: center;
     min-height: 100vh;
 }
 
 section {
+    position: relative;
     padding: 0.4rem;
-    border-radius: 1rem;
+    /* border-radius: 1rem;
     background: linear-gradient(80deg, rgb(237, 194, 2) 36%, rgba(242,80,0,1) 100%);
-    box-shadow: 0.8rem 0.7rem 1rem rgba(116, 116, 116, 0.285);
-    
+    box-shadow: 0.8rem 0.7rem 1rem rgba(116, 116, 116, 0.285);    */
 }
 
 .card {
@@ -46,9 +44,9 @@ section {
     max-width: 40rem;
     min-width: 30rem;
     min-height: 20rem;
-    padding: 2.2rem;
+    /* padding: 2.2rem;
     background-color: white;
-    border-radius: 0.8rem;
+    border-radius: 0.8rem; */
 }
 
 .card h1 {
@@ -60,33 +58,46 @@ section {
     max-width: 90%;
 }
 
-button {
+.btn {
     border: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 45%;
+    padding-block: 0.9rem;
+    border-radius: 3rem;
+    background-color: rgb(255, 223, 95);
 }
 
-.btn {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
-    width: 85%;
-    padding-block: 0.9rem;
-    border-radius: 0.8rem;
-    background-color: rgb(39, 39, 39);
-    margin-block: 1rem 0.7rem;
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(255, 208, 0);
 }
 
 .rating {
-    margin-block: 2.5rem 2rem;
+    margin-block: 1.7rem 1.3rem;
     display: flex;
+    align-items: center;
     gap: 1.5rem; 
     display: none;
 }
 
 .score {
     appearance: none;
+    padding: 2.5rem;
+    background: no-repeat center / cover;
+    border-radius: 50%;
 }
 
-.score-title {
+.rating-icon:hover .score{
+    cursor: pointer;
+    padding: 2.8rem;
+}
+
+.score:checked {
+    border: 0.2rem solid black;
+}
+
+/* .score-title {
     cursor: pointer;
     font-size: 1.7rem;
     padding: 0.8rem 3.8rem;
@@ -95,17 +106,51 @@ button {
     border-radius: 0.5rem;
     font-weight: 600;
     border: none;
-}
+} */
 
-.score:checked + .score-title{
+/* .score:checked + .score-title{
     background-color: rgb(255, 204, 0);
 }
 
 .score-title:hover {
     background-color: rgb(167, 153, 110);
+} */
+
+
+.blob {
+    position: absolute;
 }
 
-button:hover {
-    cursor: pointer;
-    background-color: rgb(56, 51, 0);
+.blob-center {
+    z-index: -1;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60rem;
+}
+
+#score1 {
+    background-image: url(./assets/pensive.png);
+}
+
+#score2{
+    background-image: url(./assets/neutral.png);
+}
+
+#score3 {
+    background-image: url(./assets/smiling.png);
+}
+
+.blob-bg {
+    width: 15rem;
+}
+
+.blob-bg:first-child{
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.blob-bg:nth-child(2) {
+    top: 1rem;
+    right: 1rem;
 }
